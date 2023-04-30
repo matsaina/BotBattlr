@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import Navbar from "./components/Navbar";
+import Botshow from "./components/Botshow";
+import { useEffect, useState } from "react";
 function App() {
+  const [records, setRecords] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/bots")
+      .then((res) => res.json())
+      .then((data) => setRecords(data));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <div className="album py-5 bg-light">
+        <div className="container">
+          <div className="row">
+            <Botshow records={records} />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
