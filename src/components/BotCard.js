@@ -47,7 +47,6 @@ function BotCard({ record, clickEvent, deleteBot }) {
                 Delete
               </button>
             </div>
-            <small className="text-muted">9 mins</small>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ function Navbar() {
         </div>
         <div className="navbar navbar-dark bg-dark box-shadow">
           <div className="container d-flex justify-content-between">
-            &nbsp; <strong> &nbsp; BOT Management</strong>
+            &nbsp; <strong className="text-white"> &nbsp; BOT Management</strong>
             <button
               className="navbar-toggler"
               type="button"
