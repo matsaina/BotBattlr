@@ -28,6 +28,13 @@ function App() {
   function deleteBot(bot) {
     const deletedBot = bots.filter((b) => b.id !== bot.id);
     setBots((bots) => deletedBot);
+
+    // Delete in DB
+    fetch(`http://localhost:4000/bots/${bot.id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((result) => console.log(result));
   }
 
   return (
