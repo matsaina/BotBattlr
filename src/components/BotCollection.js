@@ -1,18 +1,20 @@
+// BotCollection.js
 import React from 'react'
 import BotCard from './BotCard';
 
-function BotCollection({ records, action, removecard }) {
+function BotCollection({ records, enlistBot, deleteBot  }) {
+
     return (
-        <>
-          {records.map((record) => {
-            return (
-              <>
-                <BotCard record={record} action={action} removecard={removecard} />
-              </>
-            );
-          })}
-        </>
-      );
+        <div className="row">
+            {records.map((bot) => (
+                <BotCard
+                key={bot.id}
+                record={bot}
+                clickEvent={enlistBot}
+                deleteBot={deleteBot} />
+            ))}
+        </div>
+    );
 }
 
-export default BotCollection
+export default BotCollection;

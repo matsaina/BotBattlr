@@ -1,13 +1,16 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function Botshow({ records, action, removecard }) {
+function Botshow({ records , removeBot, deleteBot}) {
   return (
     <>
-      {records.map((record) => {
+      {records.map((bot) => {
         return (
           <>
-            <BotCard record={record} action={action} removecard={removecard} />
+            <BotCard  key={bot.id}
+        record={bot}
+        clickEvent={removeBot}
+        deleteBot={deleteBot} />
           </>
         );
       })}
